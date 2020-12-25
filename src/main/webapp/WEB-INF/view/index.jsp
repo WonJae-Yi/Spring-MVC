@@ -22,8 +22,6 @@
 
 		</ul>
 
-
-
 		<ul class="banner-button-list"
 			style="color: #ffff00; font-size: 20px; position: absolute; left: 10px; bottom: 5px; z-index: 100px; display: flex; flex-direction: row;">
 			<li></li>
@@ -84,10 +82,6 @@
 </div>
 
 <!-- ----- 커뮤니티 시작 줄 -------------------------------------------------------------------------------------------- -->
-
-
-
-<!-- ----- 커뮤니티 시작 줄 -------------------------------------------------------------------------------------------- -->
 <!-- <div class="margin-top">
 	<div style="height: 170px; margin-top:10px;" class="content-container border">
 	</div>
@@ -119,8 +113,6 @@
                                 </span> 원
                             </span> <span class="event">
 
-
-
                             </span>
                         </div>
                         <div class="footer text-strong">
@@ -145,8 +137,6 @@
                                     45,000
                                 </span> 원
                             </span> <span class="event">
-
-
 
                             </span>
                         </div>
