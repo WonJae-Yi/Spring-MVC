@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+  <definition name="root.*" template="/WEB-INF/view/inc/layout.jsp">
+    <put-attribute name="title" value="메이페이지" />
+    <put-attribute name="header" value="/WEB-INF/view/inc/header.jsp" />
+    <put-attribute name="body" value="/WEB-INF/view/{1}.jsp" />
+    <put-attribute name="footer" value="/WEB-INF/view/inc/footer.jsp" />
+  </definition>
+  <definition name="notice.*" template="/WEB-INF/view/customer/inc/layout.jsp">
+    <put-attribute name="title" value="공지사항" />
+    <put-attribute name="header" value="/WEB-INF/view/inc/header.jsp" />
+    <put-attribute name="visual" value="/WEB-INF/view/customer/inc/visual.jsp" />
+    <put-attribute name="aside" value="/WEB-INF/view/customer/inc/aside.jsp" />
+    <put-attribute name="body" value="/WEB-INF/view/customer/notice/{1}.jsp" />
+    <put-attribute name="footer" value="/WEB-INF/view/inc/footer.jsp" />
+  </definition>
+  <definition name="member.*" template="/WEB-INF/view/customer/inc/layout.jsp">
+    <put-attribute name="title" value="회원메뉴" />
+    <put-attribute name="header" value="/WEB-INF/view/inc/header.jsp" />
+    <put-attribute name="visual" value="/WEB-INF/view/customer/inc/visual.jsp" />
+    <put-attribute name="aside" value="/WEB-INF/view/member/inc/aside.jsp" />
+    <put-attribute name="body" value="/WEB-INF/view//member/{1}.jsp" />
+    <put-attribute name="footer" value="/WEB-INF/view/inc/footer.jsp" />
+  </definition>
+  <definition name="student.*" template="/WEB-INF/view/admin/inc/layout.jsp">
+    <put-attribute name="title" value="수강생메뉴" />
+    <put-attribute name="header" value="/WEB-INF/view/inc/header.jsp" />
+    <put-attribute name="visual" value="/WEB-INF/view/customer/inc/visual.jsp" />
+    <put-attribute name="aside" value="/WEB-INF/view/student/inc/aside.jsp" />
+    <put-attribute name="body" value="/WEB-INF/view/student/{1}.jsp" />
+    <put-attribute name="footer" value="/WEB-INF/view/inc/footer.jsp" />
+  </definition>
+  <definition name="admin.notice.*" template="/WEB-INF/view/admin/inc/layout.jsp">
+    <put-attribute name="title" value="공지사항 리스트" />
+    <put-attribute name="header" value="/WEB-INF/view/inc/header.jsp" />
+    <put-attribute name="visual" value="/WEB-INF/view/customer/inc/visual.jsp" />
+    <put-attribute name="aside" value="/WEB-INF/view/admin/inc/aside.jsp" />
+    <put-attribute name="body" value="/WEB-INF/view/admin/notice/{1}.jsp" />
+    <put-attribute name="footer" value="/WEB-INF/view/inc/footer.jsp" />
+  </definition>
+  <definition name="admin.board.notice.*" template="/WEB-INF/view/admin/inc/layout.jsp">
+    <put-attribute name="title" value="관리자페이지" />
+    <put-attribute name="header" value="/WEB-INF/view/inc/header.jsp" />
+    <put-attribute name="visual" value="/WEB-INF/view/customer/inc/visual.jsp" />
+    <put-attribute name="aside" value="/WEB-INF/view/admin/inc/aside.jsp" />
+    <put-attribute name="body" value="/WEB-INF/view/admin/board/notice/{1}.jsp" />
+    <put-attribute name="footer" value="/WEB-INF/view/inc/footer.jsp" />
+  </definition>
+
+  <definition name="admin.*" template="/WEB-INF/view/admin/inc/layout.jsp">
+    <put-attribute name="title" value="공지사항" />
+    <put-attribute name="header" value="/WEB-INF/view/inc/header.jsp" />
+    <put-attribute name="visual" value="/WEB-INF/view/customer/inc/visual.jsp" />
+    <put-attribute name="aside" value="/WEB-INF/view/admin/inc/aside.jsp" />
+    <put-attribute name="body" value="/WEB-INF/view/admin/{1}.jsp" />
+    <put-attribute name="footer" value="/WEB-INF/view/inc/footer.jsp" />
+  </definition>
+ 
+</tiles-definitions>

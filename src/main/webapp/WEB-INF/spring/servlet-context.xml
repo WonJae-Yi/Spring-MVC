@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc
+        https://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd">
+        
+	<context:component-scan base-package="com.yiwon.web.controller" />  
+
+	<!-- <bean id="/index" class="com.yiwon.web.controller.IndexController" /> -->
+
+	<!-- <bean id="/notice/list"	class="com.yiwon.web.controller.notice.ListController"/>
+	
+	<bean id="/notice/detail" class="com.yiwon.web.controller.notice.DetailController" />
+
+	<bean id="/student/index" class="com.yiwon.web.controller.student.IndexController" />
+	
+	<bean id="/member/login" class="com.yiwon.web.controller.member.LoginController" />
+	<bean id="/member/join" class="com.yiwon.web.controller.member.JoinController" />
+	<bean id="/member/confirm" class="com.yiwon.web.controller.member.ConfirmController" />
+	<bean id="/member/agree" class="com.yiwon.web.controller.member.AgreeController" />	
+	<bean id="/admin/index" class="com.yiwon.web.controller.admin.IndexController" />
+	<bean id="/admin/board/notice/list" class="com.yiwon.web.controller.admin.notice.ListController" />
+
+	<bean id="/admin/board/notice/detail" class="com.yiwon.web.controller.admin.notice.DetailController" />
+
+	<bean id="/admin/board/notice/reg" class="com.yiwon.web.controller.admin.notice.RegController" /> -->
+	
+	<bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView" />
+		<property name="order" value="1" />
+	</bean>	
+
+	<bean class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+	    <property name="definitions" value="/WEB-INF/tiles.xml" />
+	</bean>
+	
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/view/"/>
+		<property name="suffix" value=".jsp"/>
+		<property name="order" value="2" />
+	</bean>
+
+	<mvc:resources location="/static/" mapping="/**"></mvc:resources>
+	
+	<mvc:annotation-driven >
+		<mvc:message-converters> <!-- @ResponseBody로 String 처리할때 한글처리 -->
+			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+				<property name="supportedMediaTypes">
+					<list>
+						<value>text/html;charset=UTF-8</value>
+					</list>
+				</property>
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+	
+
+</beans>
