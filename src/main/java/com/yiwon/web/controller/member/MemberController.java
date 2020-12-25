@@ -7,6 +7,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/member/")
 public class MemberController {
 	
+
+	@RequestMapping("home")
+	public String home() {
+				
+		return "member.login";
+	}
 	
 	@RequestMapping("agree")
 	public String agree() {
