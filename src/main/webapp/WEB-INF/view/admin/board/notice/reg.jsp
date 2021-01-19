@@ -13,7 +13,7 @@
 		</ul>
 	</div>
 
-	<form action="reg" method="post" >
+	<form action="reg" method="post" enctype="multipart/form-data" >
 		<div class="margin-top first">
 			<h3 class="hidden">공지사항 입력</h3>
 			<table class="table">
@@ -23,9 +23,46 @@
 						<td class="text-align-left text-indent text-strong text-orange"
 							colspan="3"><input type="text" name="title" /></td>
 					</tr>
+					
+					<tr>
+						<th>카테고리</th>
+						<td class="text-align-left text-indent text-strong text-orange"	colspan="3">
+							<select name="category">
+								<option value="1">카테고리1</option>
+								<option value="2">카테고리2</option>
+								<option value="3">카테고리3</option>
+								<option value="4">카테고리4</option>
+							</select>
+							
+						</td>
+					</tr>
+					
+					<tr>
+						<th>좋아하는음식</th>
+						<td class="text-align-left text-indent text-strong text-orange"	colspan="3">
+							<input type="checkbox" name="foods" value="1" id="ch1"><label for="ch1">자장면</label>
+							<input type="checkbox" name="foods" value="2" id="ch2"><label for="ch2">짬뽕</label>
+							<input type="checkbox" name="foods" value="3" id="ch3"><label for="ch3">볶음밥</label>
+							<input type="checkbox" name="foods" value="4" id="ch4"><label for="ch4">탕수육</label>
+						</td>
+					</tr>
+					<tr>
+						<th>가장 좋아하는음식</th>
+						<td class="text-align-left text-indent text-strong text-orange"	colspan="3">
+							<input type="radio" name="favorite" value="1" id="rd1"><label for="rd1">자장면</label>
+							<input type="radio" name="favorite" value="2" id="rd2"><label for="rd2">짬뽕</label>
+							<input type="radio" name="favorite" value="3" id="rd3"><label for="rd3">볶음밥</label>
+							<input type="radio" name="favorite" value="4" id="rd4"><label for="rd4">탕수육</label>
+						</td>
+					</tr>
+					
 					<tr>
 						<th>첨부파일</th>
-						<td colspan="3" class="text-align-left text-indent"><input type="file" name="file" /></td>
+						<td colspan="3" class="text-align-left text-indent"><input type="files" name="file" /></td>
+					</tr>
+					<tr>
+						<th>첨부파일</th>
+						<td colspan="3" class="text-align-left text-indent"><input type="files" name="file" /></td>
 					</tr>
 					<tr class="content">
 						<td colspan="4"><textarea class="content" name="content"></textarea></td>

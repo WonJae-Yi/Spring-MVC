@@ -12,6 +12,8 @@ import java.util.List;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
 import com.yiwon.web.entity.Notice;
@@ -43,42 +45,20 @@ public class JDBCNoticeService implements NoticeService{
 
 	public List<Notice> getNoticeList(String field, String query, int page, String argPub) throws ClassNotFoundException, SQLException {
 
-		List<Notice> list = new ArrayList<>();
+		int start = 1 + (page - 1) * 10;
+		int end = 10 * page;
 
-		sql = "select id, title, writer_id, regdate, hit, files, cmt_count, pub"
-				+ " 	from (select row_number()over (order by id desc) no, id, title, writer_id, regdate, hit, files, pub,"
-				+ "           (select count(*) from comments where notice_id = a.id) cmt_count"
-				+ " 			from notice a "
-				+ "				where pub like ?"
-				+ " 			and " + field + " like '%'||?||'%')"
-				+ " 	where no between ? and ? ";
-
-		Connection con = dataSource.getConnection();		
-		PreparedStatement pst = con.prepareStatement(sql);
-		//pst.setString(1, field);
-		pst.setString(1, argPub);
-		pst.setString(2, query);
-		pst.setInt(3, 1 + (page - 1) * 10);
-		pst.setInt(4, page * 10);
-		ResultSet rs = pst.executeQuery();
-
-		while (rs.next()) {
-			int id = rs.getInt("id");
-			String title = rs.getString("Title");
-			String writerId = rs.getString("writer_id");
-			Date regDate = rs.getDate("regDate");
-			int hit = rs.getInt("hit");
-			String files = rs.getString("files");
-			int cmtCount = rs.getInt("cmt_count");
-			String pub = rs.getString("pub");
-
-			Notice notice = new Notice(id, title, writerId, regDate, hit, files, "", cmtCount,pub);
-			list.add(notice);
-		}
-		rs.close();
-		pst.close();
-		con.close();
-
+//		sql = "select id, title, writer_id, regdate, hit, files, cmt_count, pub"
+//				+ " 	from (select row_number()over (order by id desc) no, id, title, writer_id, regdate, hit, files, pub,"
+//				+ "           (select count(*) from comments where notice_id = a.id) cmt_count"
+//				+ " 			from notice a "
+//				+ "				where pub like ?"
+//				+ " 			and " + field + " like '%'||?||'%')"
+//				+ " 	where no between " + start + " and " + end ;
+		sql = "select * from notice";
+		JdbcTemplate template = new JdbcTemplate();
+		template.setDataSource(dataSource);
+		List<Notice> list = template.query(sql, new BeanPropertyRowMapper(Notice.class));
 
 		return list;
 	}
